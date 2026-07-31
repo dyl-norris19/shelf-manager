@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+#Database stuff:
+src/infrastructure/data/database/*.db
+
+#Scripts (for now)
+scripts
