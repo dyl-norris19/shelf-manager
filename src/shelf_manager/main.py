@@ -19,6 +19,7 @@ from infrastructure.downloader import (
     move_existing_downloads
 )
 
+from shelf_manager.notifications import send_notification
 
 def main():
     print(
@@ -100,6 +101,14 @@ def main():
                     release_type="chapter",
                     number=chapter_number,
                     mega_url=mega_url
+                )
+
+                send_notification(
+                    f"✅ Downloaded {SERIES_TITLE} Chapter {chapter_number}"
+                )
+
+                print(
+                    "Discord Notification Sent"
                 )
 
                 print(

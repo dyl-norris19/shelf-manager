@@ -2,6 +2,7 @@ from pathlib import Path
 from mega import Mega
 
 from shelf_manager.config import DOWNLOAD_DIRECTORY
+from shelf_manager.notifications import send_notification
 
 
 DOWNLOAD_PATH = Path(
@@ -130,5 +131,11 @@ def download_release(
         print(
             f"Download failed: {error}"
         )
+
+        send_notification(
+        f"❌ Download failed\n"
+        f"{title} {release_type} {number}\n"
+        f"Error: {error}"
+    )
 
         return False
